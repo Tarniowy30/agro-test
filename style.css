@@ -1,7 +1,17 @@
-
 body {
+  background-color: #f0f8ff;
+  font-family: Arial, sans-serif;
+  text-align: center;
   margin: 0;
   padding: 0;
-  background-color: #f0f0f0;
-  text-align: center;
+}
+
+main {
+  padding: 20px;
+}
+
+canvas {
+  display: block;
+  margin: 0 auto;
+  border: 2px solid #388e3c;
 }
