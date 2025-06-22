@@ -1,22 +1,21 @@
+# Projeto Agrinho - #agrinho
 
-# Projeto Agrinho - Conexão Campo-Cidade
+## Tema:
+Festejando a Conexão Campo-Cidade
 
-Este projeto foi desenvolvido com JavaScript e p5.js.
+## Sobre:
+Este projeto ilustra o fluxo de recursos do campo para a cidade. Um caminhão parte do campo e abastece a cidade.
 
-## Funcionalidade:
-- Tela de menu com escolha de cenário: Campo ou Cidade.
-- Mudança de cores de fundo para representar os cenários.
-- Sons diferentes para cada ambiente.
-- Interação por clique de mouse e pela tecla ESPAÇO.
-
-## Estrutura do Projeto:
+## Estrutura de Arquivos:
 - index.html
-- sketch.js
 - style.css
-- sons/campo.mp3
-- sons/cidade.mp3
+- sketch.js
+- /assets/
+    - produtos.png
+    - cidade.png
+    - caminhao.png
+    - som_caminhao.mp3
 
-## Autor:
-Projeto original criado para o Concurso Agrinho.
+## Como Rodar:
+Abra o `index.html` em um navegador.
 
-#agrinho
