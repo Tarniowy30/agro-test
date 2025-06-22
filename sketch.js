@@ -1,57 +1,41 @@
-
-let cenario = "menu";
-let somCampo, somCidade;
+let campoImg, cidadeImg, caminhaoImg, somCaminhao;
+let xCaminhao = 50;
+let viagem = false;
 
 function preload() {
-  somCampo = loadSound('sons/campo.mp3');
-  somCidade = loadSound('sons/cidade.mp3');
+  campoImg = loadImage('assets/produtos.png');
+  cidadeImg = loadImage('assets/cidade.png');
+  caminhaoImg = loadImage('assets/caminhao.png');
+  somCaminhao = loadSound('assets/som_caminhao.mp3');
 }
 
 function setup() {
-  createCanvas(800, 600);
+  createCanvas(800, 400);
 }
 
 function draw() {
-  background(200);
-  textAlign(CENTER, CENTER);
-  fill(0);
-  textSize(24);
+  background(220);
 
-  if (cenario == "menu") {
-    text("Escolha o cenário:\nClique para Campo ou Cidade", width / 2, height / 2);
-  } else if (cenario == "campo") {
-    background(100, 200, 100);
-    fill(255);
-    text("Você está no Campo!\nPressione ESPAÇO para ir à Cidade", width / 2, height / 2);
-  } else if (cenario == "cidade") {
-    background(100, 100, 200);
-    fill(255);
-    text("Você está na Cidade!\nPressione ESPAÇO para voltar ao Campo", width / 2, height / 2);
+  image(campoImg, 0, 0, width / 2, height);
+  image(cidadeImg, width / 2, 0, width / 2, height);
+  image(caminhaoImg, xCaminhao, height / 2, 80, 50);
+
+  if (viagem) {
+    xCaminhao += 2;
+    if (xCaminhao > width) {
+      viagem = false;
+      xCaminhao = 50;
+    }
   }
 }
 
 function mousePressed() {
-  if (cenario == "menu") {
-    if (mouseX < width / 2) {
-      cenario = "campo";
-      somCampo.play();
-    } else {
-      cenario = "cidade";
-      somCidade.play();
-    }
+  if (!viagem) {
+    somCaminhao.play();
+    viagem = true;
   }
 }
 
-function keyPressed() {
-  if (key == ' ') {
-    if (cenario == "campo") {
-      cenario = "cidade";
-      somCampo.stop();
-      somCidade.play();
-    } else if (cenario == "cidade") {
-      cenario = "campo";
-      somCidade.stop();
-      somCampo.play();
-    }
-  }
+function keyReleased() {
+  cidadeImg.filter(THRESHOLD);
 }
